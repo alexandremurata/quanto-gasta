@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Consumos</title>
+    <th:block th:include="layout/header"></th:block>
+</head>
+<body>
+	<div class="container">
+    <div th:if="${not #lists.isEmpty(consumos)}">
+        <h2>Todos Consumos</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Eletrodomestico</th>
+                <th>Tempo Uso Diario</th>
+                <th>Quantidade</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="consumo : ${consumos}">
+                <td th:text="${consumo.id}">Id</td>
+                <td th:text="${consumo.eletrodomestico.nome}">Eletrodomestico</td>
+                <td th:text="${consumo.tempoUsoDiario}">Tempo Uso Diario</td>
+                <td th:text="${consumo.quantidade}">Quantidade</td>
+                <td><a th:href="${'/consumos/edit/' + consumo.id}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'/consumos/delete/' + consumo.id}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
