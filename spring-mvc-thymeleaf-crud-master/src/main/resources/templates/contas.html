@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Contas</title>
-    <th:block th:include="layout/header"></th:block>
+<title>Contas</title>
+<th:block th:include="layout/header"></th:block>
 </head>
 <body>
 	<div class="container">
-    <div th:if="${not #lists.isEmpty(contas)}">
-        <h2>Todas Contas</h2>
-        <table class="table table-striped">
-            <tr>
-                <th>Id</th>
-                <th>Mes/Ano</th>
-                <th>Total Valor</th>
-                <th>Total Consumo</th>
-                <th>Delete</th>
-            </tr>
-            <tr th:each="conta : ${contas}">
-                <td th:text="${conta.id}">Id</td>
-                <td th:text="${conta.mesAno}">Mes/Ano</td>
-                <td th:text="${conta.totalValor}">Total Valor</td>
-                <td th:text="${conta.totalKWH}">Total Consumo</td>
-                <td><a th:href="${'/contas/delete/' + conta.id}" class="btn btn-danger">Delete</a></td>
-            </tr>
-        </table>
-    </div>
-</div>
+
+		<div class="form-group">
+			<div class="col-sm-2">
+				<a th:href="@{/contas/fechar}">Fechar Conta</a>
+			</div>
+		</div>
+
+		<div th:if="${not #lists.isEmpty(contas)}">
+			<h2>Todas Contas</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Mes/Ano</th>
+					<th>Total Valor</th>
+					<th>Total Consumo</th>
+				</tr>
+				<tr th:each="conta : ${contas}">
+					<td th:text="${conta.id}">Id</td>
+					<td th:text="${conta.mesAno}">Mes/Ano</td>
+					<td th:text="${conta.totalValor}">Total Valor</td>
+					<td th:text="${conta.totalKWH}">Total Consumo</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

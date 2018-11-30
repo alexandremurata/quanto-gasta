@@ -1,6 +1,5 @@
 package com.example.springmvc.repository;
 
-import java.util.Collections;
 import java.util.List;
 
 import com.db4o.Db4oEmbedded;
@@ -21,11 +20,22 @@ public class EletrodomesticoRepository {
 	}
 
 	public List<Eletrodomestico> findAll() {
-		final List<Eletrodomestico> eletrodomesticos = container.queryByExample(Eletrodomestico.class);
-		return Collections.unmodifiableList(eletrodomesticos);
+		
+		/*
+		 * Query query = institutions.query();
+		query.constrain(Institution.class);
+	    List<Institution> allInstitutions = query.execute();
+		 */
+		Query query = container.query();
+		query.constrain(Eletrodomestico.class);
+		List<Eletrodomestico> response = query.execute();
+		
+		return response;
+		/*final List<Eletrodomestico> eletrodomesticos = container.queryByExample(Eletrodomestico.class);
+		return Collections.unmodifiableList(eletrodomesticos);*/
 	}
 
-	public Eletrodomestico findOne(final Integer id) {
+	public Eletrodomestico findOne(final Long id) {
 		Query query = container.query();
 		query.constrain(Eletrodomestico.class);
 		List<Eletrodomestico> eletrodomesticos = query.execute();
@@ -37,7 +47,7 @@ public class EletrodomesticoRepository {
 		return null;
 	}
 
-	public void delete(final Integer id) {
+	public void delete(final Long id) {
 		Query query = container.query();
 		query.constrain(Eletrodomestico.class);
 		List<Eletrodomestico> eletrodomesticos = query.execute();

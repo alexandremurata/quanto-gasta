@@ -31,5 +31,9 @@ public class ContaController {
         return "contas";
     }
 
-
+    @RequestMapping(path = "/contas/fechar", method = RequestMethod.POST)
+    public String fecharConta(Conta conta) {
+        service.fecharConta(conta);
+        return "redirect:/";
+    }
 }

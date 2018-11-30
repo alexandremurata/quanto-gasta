@@ -17,14 +17,13 @@ public class ContaService {
 		return repository.findAll();
 	}
 
-	public Conta findOne(String id) {
-		// TODO Auto-generated method stub
+	public Conta findOne(Integer id) {
 		return repository.findOne(id);
 	}
 
-	public void delete(final String id) {
-		repository.delete(id);
+	public void fecharConta(Conta conta) {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

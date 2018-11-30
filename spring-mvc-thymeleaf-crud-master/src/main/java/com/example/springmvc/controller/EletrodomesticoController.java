@@ -33,13 +33,13 @@ public class EletrodomesticoController {
     }
 
     @RequestMapping(path = "/eletrodomesticos/edit/{id}", method = RequestMethod.GET)
-    public String editEletrodomestico(Model model, @PathVariable(value = "id") Integer id) {
+    public String editEletrodomestico(Model model, @PathVariable(value = "id") Long id) {
         model.addAttribute("eletrodomestico", service.findOne(id));
         return "eletrodomesticoEdit";
     }
 
     @RequestMapping(path = "/eletrodomesticos/delete/{id}", method = RequestMethod.GET)
-    public String deleteEletrodomestico(@PathVariable(name = "id") Integer id) {
+    public String deleteEletrodomestico(@PathVariable(name = "id") Long id) {
         service.delete(id);
         return "redirect:/eletrodomesticos";
     }

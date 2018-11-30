@@ -17,12 +17,12 @@ public class EletrodomesticoService {
 		return repository.findAll();
 	}
 
-	public Eletrodomestico findOne(Integer id) {
+	public Eletrodomestico findOne(Long id) {
 		// TODO Auto-generated method stub
 		return repository.findOne(id);
 	}
 
-	public void delete(final Integer id) {
+	public void delete(final Long id) {
 		repository.delete(id);
 		// TODO Auto-generated method stub
 		

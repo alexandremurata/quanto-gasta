@@ -7,14 +7,13 @@ import lombok.Setter;
 @Setter
 public class Eletrodomestico {
 
-	private Integer id;
+	private Long id;
 	private String nome;
 	private Double potencia;
 	
 	public Eletrodomestico() {}
 
-	public Eletrodomestico(Integer id, String nome, Double potencia) {
-		super();
+	public Eletrodomestico(Long id, String nome, Double potencia) {
 		this.id = id;
 		this.nome = nome;
 		this.potencia = potencia;
